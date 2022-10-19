@@ -126,4 +126,4 @@ def welcome():
             case 2:
                 patient_menu()
 
-welcome()
+# welcome()
