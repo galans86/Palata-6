@@ -73,7 +73,7 @@ def personal_menu():
                           '0. Предыдущее меню\n')):
         match get_mode():
             case 1:
-                show('Personal.csv')
+                show.show_data('Psih_palata/Personal.csv')
             case 2:
                 while menu_find_personal():
                     match get_mode():
@@ -100,7 +100,7 @@ def patient_menu():
                           '0. Предыдущее меню\n')):
         match get_mode():
             case 1:
-                show('Patients.csv')
+                show.show_data('Psih_palata/Patients.csv')
             case 2:
                 while menu_find_patient():
                     match get_mode():
@@ -126,3 +126,4 @@ def welcome():
             case 2:
                 patient_menu()
 
+welcome()
