@@ -78,11 +78,11 @@ def personal_menu():
                 while menu_find_personal():
                     match get_mode():
                         case 1:
-                            print(find_in('Psih_palata/Personal.csv',3,surname_in()))
+                            find_in('Psih_palata/Personal.csv',2,surname_in())
                         case 2:
-                            print(find_in('Psih_palata/Personal.csv',4,special_in()))
+                            find_in('Psih_palata/Personal.csv',3,special_in())
                         case 3:
-                            print(find_in('Psih_palata/Personal.csv',6,parking_in()))
+                            find_in('Psih_palata/Personal.csv',5,parking_in())
             case 3:
                 print('refresh in work\n')
             case 4:
@@ -105,11 +105,11 @@ def patient_menu():
                 while menu_find_patient():
                     match get_mode():
                         case 1:
-                            print(find_in('Psih_palata/Patients.csv',3,surname_in()))
+                            find_in('Psih_palata/Patients.csv',2,surname_in())
                         case 2:
-                            print(find_in('Psih_palata/Patients.csv',4,diag_in()))
+                            find_in('Psih_palata/Patients.csv',3,diag_in())
                         case 3:
-                            print(find_in('Psih_palata/Patients.csv',5,room_in()))
+                            find_in('Psih_palata/Patients.csv',4,room_in())
             case 3:
                 print('refresh in work')
             case 4:
@@ -125,4 +125,6 @@ def welcome():
                 personal_menu()
             case 2:
                 patient_menu()
+
+# welcome()
 
