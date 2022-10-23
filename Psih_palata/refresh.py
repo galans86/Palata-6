@@ -16,7 +16,7 @@ def change_info_file(file_name, id: str, last_name, first_name, diagnosis, chamb
         print("Data added to",  file_name)
     else:
         print("File not found, write the data to a file")
-        return 0
+        return [0]
 
 
 def read_data(file_name):

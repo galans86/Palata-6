@@ -74,16 +74,22 @@ def get_name(message):
             print("\n", "-"*20, "Invalid name, repeat input", "-"*20)
 
 
-def exception_name(message):   # доделать
+def exception_name(message): 
+    for i in "!@#$%^&/*?<>1234567890'\"":
+            if message.find(i)>=0:
+               return False
+    else:
         return True
 
 def to_continee(messege):
     input(messege)
 
 
-def exception_menu_item(value): # доделать
-    value=value
-    return True
+def exception_menu_item(value):
+    if value.isdigit() and (int(value) in [1, 2, 3, 4, 5, 6, 7]):
+        return True
+    else:
+        return False
 
 
 def get_value(message):
@@ -102,39 +108,38 @@ def menu_change_info_p():
     for i in data:
         i_temp = i.replace("\n", '').split(';')
         if i_temp[0] == id:
-            print(f"пациент найден - {i_temp[1]} {i_temp[2]}, диагноз  - {i_temp[3]}, палата - {i_temp[4]}")
+            print(f"patient found - {i_temp[1]} {i_temp[2]}, diagnosis  - {i_temp[3]}, chamber - {i_temp[4]}")
             id, last_name, first_name, diagnosis, chamber, size_cp , status = i_temp
             break
     else:
         return print("The id is missing!")
     print()
     print( "1 last_name", "2 first_name", "3 diagnosis", "4 chamber",
-          "5 size_cp", "6 status", "7 return to the  previous menu",  sep="\n")
+          "5 size_cp", "6 status", "7 return to the previous menu",  sep="\n")
     num = get_value("\n Select item for change: ")
     match num:
         case 1:
             last_name = get_name('Input last name: ')
-            to_continee("To continue peress Enter")
+            to_continee("To continue press Enter")
         case 2:
             first_name = get_name('Input first name: ')
-            to_continee("To continue peress Enter")
+            to_continee("To continue press Enter")
         case 3:
             diagnosis = get_name('Input diagnosis: ')
-            to_continee("To continue peress Enter")
+            to_continee("To continue press Enter")
         case 4:
             chamber = get_value('Input chamber: ')
-            to_continee("To continue peress Enter")
+            to_continee("To continue press Enter")
         case 5:
             size_cp = get_name('Input size_cp: ')
-            to_continee("To continue peress Enter")
+            to_continee("To continue press Enter")
         case 6:
             status = get_name('Input  status: ')
-            to_continee("To continue peress Enter")
+            to_continee("To continue press Enter")
         case 7:
-            menu_change_info_p()
+            patient_menu()
     change_info_file('Patients.csv', id, last_name, first_name, diagnosis, chamber, size_cp , status)
 
-# id;Имя;Фамилия;Должность;Телефон;Парковочное место;Подопечный
 
 def menu_change_info_s():
     id = get_id("Input id employee: ")
@@ -151,33 +156,31 @@ def menu_change_info_s():
         return print("The id is missing!")
     print()
     print( "1 last_name", "2 first_name", "3 specialization", "4 telethone",
-          "5 place", "6 patient ", "7 return to the  previous menu",  sep="\n")
+          "5 place", "6 patient ", "7 return to the previous menu",  sep="\n")
     num = get_value("\n Select item for change: ")
     match num:
         case 1:
             last_name = get_name('Input last name: ')
-            to_continee("To continue peress Enter")
+            to_continee("To continue press Enter")
         case 2:
             first_name = get_name('Input first name: ')
-            to_continee("To continue peress Enter")
+            to_continee("To continue press Enter")
         case 3:
             specialization = get_name('Input specialization: ')
-            to_continee("To continue peress Enter")
+            to_continee("To continue press Enter")
         case 4:
             telethone = get_value('Input telethone: ')
-            to_continee("To continue peress Enter")
+            to_continee("To continue press Enter")
         case 5:
             place = get_name('Input parking place number: ')
-            to_continee("To continue peress Enter")
+            to_continee("To continue press Enter")
         case 6:
             patient = get_name('Input  patient: ')
-            to_continee("To continue peress Enter")
+            to_continee("To continue press Enter")
         case 7:
-            menu_change_info_s()
+            personal_menu()
 
     change_info_file('Personal.csv', id, last_name, first_name, specialization, telethone, place , patient)
-
-
 
 
 
@@ -190,8 +193,12 @@ def get_id(message):
             print("\n", "-"*20, "Invalid id, repeat input", "-"*20)
 
 
-def  exception_id(value):    # проверка id доделать
-    return True
+def  exception_id(value): 
+    value = value.replace(" ", '')
+    if value.isdigit() and len(value)<4:
+        return True
+    else: 
+        return False
 
 
 def personal_menu():
