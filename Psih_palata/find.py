@@ -11,7 +11,6 @@ def find_in(file: str, r: int, value : str) -> list:
     res = []
     with open(file, newline='', encoding="utf-8") as File:  
         reader = csv.reader(File)
-        print(reader)
         for row in reader:
             res = row[0].split(';')
             if value.lower() in res[r].lower():      # по наличию в строке без учета регистра
