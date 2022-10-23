@@ -149,8 +149,8 @@ def menu_change_info_s():
     for i in data:
         i_temp = i.replace("\n", '').split(';')
         if i_temp[0] == id:
-            print(f"пациент найден - {i_temp[1]} {i_temp[2]}, диагноз  - {i_temp[3]}, палата - {i_temp[4]}")
-            id, last_name, first_name, specialization, telethone, place , patient = i_temp
+            print(f" employee - {i_temp[1]} {i_temp[2]}, specialization  - {i_temp[3]}, telephone - {i_temp[4]}")
+            id, last_name, first_name, specialization, telephone, place , patient = i_temp
             break
     else:
         return print("The id is missing!")
@@ -169,7 +169,7 @@ def menu_change_info_s():
             specialization = get_name('Input specialization: ')
             to_continee("To continue press Enter")
         case 4:
-            telethone = get_value('Input telethone: ')
+            telephone = get_value('Input telethone: ')
             to_continee("To continue press Enter")
         case 5:
             place = get_name('Input parking place number: ')
@@ -180,7 +180,7 @@ def menu_change_info_s():
         case 7:
             personal_menu()
 
-    change_info_file('Personal.csv', id, last_name, first_name, specialization, telethone, place , patient)
+    change_info_file('Personal.csv', id, last_name, first_name, specialization, telephone, place , patient)
 
 
 
