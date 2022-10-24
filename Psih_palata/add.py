@@ -86,7 +86,7 @@ def add_status(lis):
     lis.append(input(f"Состояние (статус): "))
     return lis
 
-add_new_worker()
+# add_new_worker()
 
     
 
