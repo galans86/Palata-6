@@ -39,7 +39,7 @@ def add_new_ward():
 
 
 def add_id(lis,file):
-    lis.append(find_last_id(file))
+    lis.append(find_last_id(file)+1)
     return lis
 
 def add_name(lis,typ):
@@ -86,6 +86,7 @@ def add_status(lis):
     lis.append(input(f"Состояние (статус): "))
     return lis
 
+add_new_worker()
 
     
 
