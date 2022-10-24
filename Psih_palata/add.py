@@ -1,9 +1,9 @@
 # def add_personal(file):
 #     open(file,)
-
+from show import find_last_id
 import csv
 
-def add_line(lis,fail = "Psih_palata/eggs.csv"):
+def add_line(lis,fail):
        with open(fail, 'a', newline='',encoding="utf-8") as csvfile:
         spamwriter = csv.writer(csvfile, delimiter=';',
                                 quotechar=';', quoting=csv.QUOTE_MINIMAL)
@@ -13,14 +13,14 @@ def add_line(lis,fail = "Psih_palata/eggs.csv"):
 def add_new_worker():
     file="Psih_palata/Personal.csv"
     new_worker_profil=[]
-    new_worker_profil=add_id(new_worker_profil)
+    new_worker_profil=add_id(new_worker_profil,file)
     new_worker_profil=add_name(new_worker_profil,1)
     new_worker_profil=add_last_name(new_worker_profil,1)
     new_worker_profil=add_post(new_worker_profil)
     new_worker_profil=add_phone(new_worker_profil)
     new_worker_profil=add_parking_nam(new_worker_profil)
     new_worker_profil=add_ward_id(new_worker_profil)
-    add_line(new_worker_profil,"Psih_palata/Personal.csv")
+    add_line(new_worker_profil,file)
 
 
 def add_new_ward():
@@ -38,8 +38,8 @@ def add_new_ward():
 
 
 
-def add_id(lis):
-    lis.append(8+1)#find_last_id()+1)
+def add_id(lis,file):
+    lis.append(find_last_id(file))
     return lis
 
 def add_name(lis,typ):
