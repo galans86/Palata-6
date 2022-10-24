@@ -53,8 +53,8 @@ def find_last_id(file: str) -> int:
 
 
 # fil = 'Psih_palata/Personal.csv'
-fil = 'Psih_palata/Patients.csv'
+# fil = 'Psih_palata/Patients.csv'
 # find_in(fil, 1, 'ар')     # name
 # find_in(fil, 5, 's')      # sr size
-find_in(fil, 1, 'а')      # surname
+# find_in(fil, 1, 'а')      # surname
 # print(find_last_id(fil))
