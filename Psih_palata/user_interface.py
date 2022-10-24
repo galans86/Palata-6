@@ -1,7 +1,7 @@
 from show import show_data
 # import logg
 from find import find_in
-# import add
+from add import add_new_worker, add_new_ward
 # import delete
 from refresh import read_data
 from refresh import change_info_file
@@ -223,7 +223,7 @@ def personal_menu():
             case 3:
                 menu_change_info_s()
             case 4:
-                print('add in work\n')
+                add_new_worker()
             case 5:
                 print('delete in work\n')
 
@@ -251,7 +251,7 @@ def patient_menu():
                 menu_change_info_p()
                 to_continee("To continue peress Enter")
             case 4:
-                print('add in work')
+                add_new_ward()
             case 5:
                 print('delete in work')
 
