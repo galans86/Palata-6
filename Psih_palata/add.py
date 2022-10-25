@@ -1,5 +1,6 @@
 from find import find_last_id
 from logg import log_add
+from error import exception_name, error_phone, size_roba, void_check
 import csv
 
 
@@ -48,6 +49,8 @@ def add_name(lis, typ):
     else:
         typ = "пациента"
     lis.append(input(f"Введите имя новокго {typ}: ").strip().capitalize())
+    while not exception_name(lis[1])or not void_check(lis[1]):
+        lis[1]= input(f"В имяни новокго {typ} недопустимые символы.\nПопробуйте снова: ").strip().capitalize()
     return lis
 
 
@@ -57,21 +60,28 @@ def add_last_name(lis, typ):
     else:
         typ = "пациента"
     lis.append(input(f"Ввкдите фамилию нового {typ}: ").strip().capitalize())
+    while not exception_name(lis[2]) or not void_check(lis[2]):
+        lis[2]= input(f"В фамилии новокго {typ} недопустимые символы. \nПопробуйте снова: ").strip().capitalize()
     return lis
+
 
 
 def add_post(lis):
     lis.append(input(f"{lis[2]} {lis[1]} в должности: ").strip().capitalize())
+    while not void_check(lis[3]):
+        lis[3]= input(f"Нельзя оставить пустым. \nПопробуйте снова: ").strip().capitalize()
     return lis
 
 
 def add_phone(lis):
-    lis.append(input(f"{lis[2]} {lis[1]} телефон: ").strip().capitalize())
+    lis.append(error_phone("номер телефона"))#input(f"{lis[2]} {lis[1]} телефон: ").strip().capitalize())
     return lis
 
 
 def add_parking_nam(lis):
     lis.append(input(f"{lis[3]} {lis[2]} паркуется на месте №: "))
+    while not void_check(lis[5]):
+        lis[5]= input(f"Нельзя оставить пустым. В случаи отсутствия ставь 0 \nПопробуйте снова: ").strip().capitalize()
     return lis
 
 
@@ -81,22 +91,32 @@ def add_ward_id(lis):
 
 
 def add_diagnosis(lis):
-    lis.append(input(f"Опишите диагноз: "))
+    lis.append(input(f"Опишите диагноз: ").strip().capitalize())
+    while not void_check(lis[3]):
+        lis[3]= input(f"Нельзя оставить пустым. \nПопробуйте снова: ").strip().capitalize()
     return lis
 
 
 def add_room(lis):
     lis.append(input(f"Номер палаты: "))
+    while not void_check(lis[4]):
+        lis[4]= input(f"Нельзя оставить пустым. \nПопробуйте снова: ").strip().capitalize()
     return lis
 
 
 def add_size(lis):
-    lis.append(input(f"Размер смирительной рубашки: "))
+    lis.append(input(f"Размер смирительной рубашки: ").upper())
+    
+    while not size_roba(lis[5]) or not void_check(lis[5]) :
+        lis[5]= input(f"Недопустимый размер, доступные размеры: XXS, XS, S, M, L, XL, XXL, XXXL\nПопробкйте снова:".upper())
+    
     return lis
 
 
 def add_status(lis):
-    lis.append(input(f"Состояние (статус): "))
+    lis.append(input(f"Состояние (статус): ").strip().capitalize())
+    while not void_check(lis[6]):
+        lis[6]= input(f"Нельзя оставить пустым. \nПопробуйте снова: ").strip().capitalize()
     return lis
 
 

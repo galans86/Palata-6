@@ -20,8 +20,8 @@ def check_in(in_mode, upper:int):
        return mode     
 
 def exception_name(message):
-    for i in "!@#$%^&/*?<>1234567890'\"":
-        if message.find(i) >= 0:
+    for i in "!@#$%^&/*?<>1234567890`~'\'":
+        if message.find(i) > 0:
             return False
     else:
         return True
@@ -108,5 +108,15 @@ def file_name():
         log_error()
         return file_name()
 
+def size_roba(size:str):
+    if size in ["XXS", "XS", "S", "M", "L", "XL", "XXL", "XXXL"]:
+        return True
+    else:
+        return False
 
+def void_check(size:str):
+    if size not in ["", " "]:
+        return True
+    else:
+        return False
         
