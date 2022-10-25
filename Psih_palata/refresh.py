@@ -15,7 +15,7 @@ def change_info_file(file_name, id: str, last_name, first_name, diagnosis, chamb
             file2.writelines(data)    
         print("Data added to",  file_name)
     else:
-        log_error()
+        log_error('File not found')
         print("File not found, write the data to a file")
         return [0]
 
@@ -26,6 +26,6 @@ def read_data(file_name):
             data = file1.readlines()
         return data
     else:
-        log_error()
+        log_error('File not found')
         print("File not found, write the data to a file", file_name)
         return [0]

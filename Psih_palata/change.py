@@ -17,7 +17,7 @@ def get_name(message):
         if exception_name(value):
             return value
         else:
-            log_error()
+            log_error('Incorrect name')
             print("\n", "-"*20, "Invalid name, repeat input", "-"*20)
 
 
@@ -27,7 +27,7 @@ def get_id(message):
         if exception_id(value):
             return value
         else:
-            log_error()
+            log_error('Incorrect Id')
             print("\n", "-"*20, "Invalid id, repeat input", "-"*20)
 
 
@@ -37,7 +37,7 @@ def get_chamber(message):
     if exception_number(value):
         return value
     else:
-        log_error()
+        log_error('Incorrect value')
         print("\n", "-"*20, "Invalid value, repeat input", "-"*20)
         get_chamber(message)
 
@@ -59,13 +59,13 @@ def menu_change_info_p(file_patients):
             id, last_name, first_name, diagnosis, chamber, size_cp, status = i_temp
             break
     else:
-        log_error()
+        log_error('The id is missing!')
         return print("The id is missing!")
     print()
     print("1 last_name", "2 first_name", "3 diagnosis", "4 chamber",
           "5 size_cp", "6 status", "7 return to the previous menu",  sep="\n")
     num = get_value("\n Select item for change: ")
-    log_next()
+    log_next('id found')
     match num:
         case 1:
             last_name = get_name('Input last name: ')
@@ -96,7 +96,7 @@ def menu_change_info_s(file_personal):
     id = get_id("Input id employee: ")
     data = read_data(file_personal)
     if data[0] == 0:
-        log_error()
+        log_error('Incorrect input')
         return print('error')
     for i in data:
         i_temp = i.replace("\n", '').split(';')
@@ -106,13 +106,13 @@ def menu_change_info_s(file_personal):
             id, last_name, first_name, specialization, telephone, place, patient = i_temp
             break
     else:
-        log_error()
+        log_error('The id is missing!')
         return print("The id is missing!")
     print()
     print("1 last_name", "2 first_name", "3 specialization", "4 telethone",
           "5 place", "6 patient ", "7 return to the previous menu",  sep="\n")
     num = get_value("\n Select item for change: ")
-    log_next()
+    log_next('Id found - proceeding')
     match num:
         case 1:
             last_name = get_name('Input last name: ')
