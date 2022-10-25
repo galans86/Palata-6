@@ -1,17 +1,13 @@
-#from Psih_palata.delete import delete_worker
-from show import show_data
-# import logg
-from find import find_in
-from add import add_new_worker, add_new_ward
-from delete import delete_worker
-from delete import delete_ward
-from refresh import read_data
-from refresh import change_info_file
-# import delete
-from error import check_in1, check_in2, check_in3, get_mode
-from error import file_personal, file_patients
-from change import menu_change_info_s, menu_change_info_p
 
+from show import show_data
+from find   import find_in
+from add    import add_new_worker, add_new_ward
+from delete import delete_worker,delete_ward
+from error  import check_in1, check_in2, check_in3, get_mode
+from change import menu_change_info_s, menu_change_info_p
+# import logg
+
+from global_v  import file_personal, file_patients
 
 def comm_menu():
     print(f'\nПсихиатрическая больница "Палата №6" \n')
