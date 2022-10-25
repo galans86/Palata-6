@@ -1,4 +1,5 @@
 from find import find_last_id
+from logg import add_log
 import csv
 
 
@@ -7,6 +8,7 @@ def add_line(lis, fail):
         spamwriter = csv.writer(csvfile, delimiter=';',
                                 quotechar=';', quoting=csv.QUOTE_MINIMAL)
         spamwriter.writerow(lis)
+    add_log(fail,lis[0])
 
 
 def add_new_worker():

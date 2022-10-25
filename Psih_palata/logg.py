@@ -45,3 +45,8 @@ def delete():
     time_calc = datetime.now().strftime('%H:%M')
     with open('Psih_palata/log.csv', 'a') as log_file:
         log_file.write('User delete person data at {}\n'.format(time_calc))
+
+def add_log(fail: str,id:int):
+    time_calc = datetime.now().strftime('%H:%M')
+    with open('Psih_palata/log.csv', 'a') as log_file:
+        log_file.write(f'User add person data at {fail} id {id}\n'.format(time_calc))
