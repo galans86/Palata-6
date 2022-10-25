@@ -1,7 +1,6 @@
 from logg      import log_start, log_quit, log_next, log_show,  log_refresh, log_error
 from refresh   import read_data, change_info_file
 from error     import exception_menu_item, exception_name, exception_id, error_phone, exception_number
-from global_v  import file_personal, file_patients
 
 def get_value(message):
     while True:
@@ -97,6 +96,7 @@ def menu_change_info_s(file_personal):
     id = get_id("Input id employee: ")
     data = read_data(file_personal)
     if data[0] == 0:
+        log_error()
         return print('error')
     for i in data:
         i_temp = i.replace("\n", '').split(';')
