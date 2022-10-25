@@ -1,8 +1,10 @@
+#from Psih_palata.delete import delete_worker
 from show import show_data
 # import logg
 from find import find_in
 from add import add_new_worker, add_new_ward
-# import delete
+from delete import delete_worker
+from delete import delete_ward
 from refresh import read_data
 from refresh import change_info_file
 
@@ -225,7 +227,8 @@ def personal_menu():
             case 4:
                 add_new_worker()
             case 5:
-                print('delete in work\n')
+                delete_worker()
+
 
 
 def patient_menu():
@@ -253,7 +256,7 @@ def patient_menu():
             case 4:
                 add_new_ward()
             case 5:
-                print('delete in work')
+                delete_ward()
 
 
 def welcome():
