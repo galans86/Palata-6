@@ -114,6 +114,3 @@ def welcome():
                 personal_menu()
             case 2:
                 patient_menu()
-
-
-welcome()
