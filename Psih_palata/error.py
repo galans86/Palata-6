@@ -1,27 +1,23 @@
+from logg import error_enter
 
 mode = 0
 
 def get_mode():
     return mode
 
-
-def check_in1(in_mode):
+def check_in(in_mode, upper:int):
     global mode
-    mode = int(in_mode) if in_mode in ['1', '2'] else 0
-    return mode
-
-
-def check_in2(in_mode):
-    global mode
-    mode = int(in_mode) if in_mode in ['1', '2', '3', '4', '5'] else 0
-    return mode
-
-
-def check_in3(in_mode):
-    global mode
-    mode = int(in_mode) if in_mode in ['1', '2', '3'] else 0
-    return mode
-
+    if not in_mode.isdigit():
+       error_enter()
+       mode = 0
+       return 0
+    mode = int(in_mode)
+    if mode < 0 or mode not in range(0,upper+1):
+       error_enter()
+       mode = 0
+       return 0
+    else:
+       return mode     
 
 def exception_name(message):
     for i in "!@#$%^&/*?<>1234567890'\"":
@@ -44,3 +40,66 @@ def exception_id(value):
         return True
     else:
         return False
+
+
+def make_choise(min: int, max: int):
+    try:
+        token = (int(input('Выберете операцию: ')))
+    except ValueError:
+        print('Это не число. Попробуйте снова')
+        error_enter()
+        return make_choise(min, max)
+    if token >= min and token <= max:
+        return token
+    else:
+        print('Попробуйте снова')
+        error_enter()
+        return make_choise(min, max)
+
+
+def error_name(what: str):
+    try:
+        name = (input('Введите {}: '.format(what)))
+    except ValueError:
+        print('Это не текст. Попробуйте снова')
+        error_enter()
+        return error_name(what)
+    if not name.isdigit():
+        return name
+    else:
+        print('Вы ввели число. Попробуйте снова')
+        error_enter()
+        return error_name(what)
+
+
+def error_phone(what: str):
+    try:
+        phone = (input(f'Введите {what}, состоящий из 11 цифр, вместе с 8-кой: '))
+    except ValueError:
+        print('Попробуйте снова')
+        error_enter()
+        return error_phone(what)
+    if phone.isdigit() and len(phone)== 11 and phone[0] == '8':
+        return phone
+    else:
+        print('Попробуйте снова')
+        error_enter()
+        return error_phone(what)
+
+
+def file_name():
+    try:
+        token = (input('Введите название файла '))
+    except ValueError:
+        print('Это не текст. Попробуйте снова')
+        error_enter()
+        return file_name()
+    if '.txt' in token:
+        return token
+    else:
+        print('Попробуйте снова')
+        error_enter()
+        return file_name()
+
+
+        
