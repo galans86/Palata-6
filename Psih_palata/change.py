@@ -1,6 +1,6 @@
-
+from logg      import log_start, log_quit, log_next, log_show,  log_refresh, log_error
 from refresh   import read_data, change_info_file
-from error     import exception_menu_item, exception_name, exception_id
+from error     import exception_menu_item, exception_name, exception_id, error_phone, exception_number
 from global_v  import file_personal, file_patients
 
 def get_value(message):
@@ -18,6 +18,7 @@ def get_name(message):
         if exception_name(value):
             return value
         else:
+            log_error()
             print("\n", "-"*20, "Invalid name, repeat input", "-"*20)
 
 
@@ -27,14 +28,26 @@ def get_id(message):
         if exception_id(value):
             return value
         else:
+            log_error()
             print("\n", "-"*20, "Invalid id, repeat input", "-"*20)
+
+
+
+def get_chamber(message):
+    value = input(message)
+    if exception_number(value):
+        return value
+    else:
+        log_error()
+        print("\n", "-"*20, "Invalid value, repeat input", "-"*20)
+        get_chamber(message)
 
 
 def to_continee(messege):
     input(messege)
 
 
-def menu_change_info_p():
+def menu_change_info_p(file_patients):
     id = get_id("Input id patient: ")
     data = read_data(file_patients)
     if data[0] == 0:
@@ -47,11 +60,13 @@ def menu_change_info_p():
             id, last_name, first_name, diagnosis, chamber, size_cp, status = i_temp
             break
     else:
+        log_error()
         return print("The id is missing!")
     print()
     print("1 last_name", "2 first_name", "3 diagnosis", "4 chamber",
           "5 size_cp", "6 status", "7 return to the previous menu",  sep="\n")
     num = get_value("\n Select item for change: ")
+    log_next()
     match num:
         case 1:
             last_name = get_name('Input last name: ')
@@ -63,7 +78,7 @@ def menu_change_info_p():
             diagnosis = get_name('Input diagnosis: ')
             to_continee("To continue press Enter")
         case 4:
-            chamber = get_value('Input chamber: ')
+            chamber = get_chamber('Input chamber: ')
             to_continee("To continue press Enter")
         case 5:
             size_cp = get_name('Input size_cp: ')
@@ -72,15 +87,15 @@ def menu_change_info_p():
             status = get_name('Input  status: ')
             to_continee("To continue press Enter")
         case 7:
-            # patient_menu()
             return 0
+    log_refresh()
     change_info_file(file_patients, id, last_name, first_name,
                      diagnosis, chamber, size_cp, status)
 
 
-def menu_change_info_s():
+def menu_change_info_s(file_personal):
     id = get_id("Input id employee: ")
-    data = read_data('Personal.csv')
+    data = read_data(file_personal)
     if data[0] == 0:
         return print('error')
     for i in data:
@@ -91,11 +106,13 @@ def menu_change_info_s():
             id, last_name, first_name, specialization, telephone, place, patient = i_temp
             break
     else:
+        log_error()
         return print("The id is missing!")
     print()
     print("1 last_name", "2 first_name", "3 specialization", "4 telethone",
           "5 place", "6 patient ", "7 return to the previous menu",  sep="\n")
     num = get_value("\n Select item for change: ")
+    log_next()
     match num:
         case 1:
             last_name = get_name('Input last name: ')
@@ -107,7 +124,7 @@ def menu_change_info_s():
             specialization = get_name('Input specialization: ')
             to_continee("To continue press Enter")
         case 4:
-            telephone = get_value('Input telethone: ')
+            telephone = error_phone('телефон')
             to_continee("To continue press Enter")
         case 5:
             place = get_name('Input parking place number: ')
@@ -118,6 +135,6 @@ def menu_change_info_s():
         case 7:
             # personal_menu()
             return 0
-
-    change_info_file('Personal.csv', id, last_name, first_name,
+    log_refresh()
+    change_info_file(file_personal, id, last_name, first_name,
                      specialization, telephone, place, patient)
