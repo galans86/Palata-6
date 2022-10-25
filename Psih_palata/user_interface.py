@@ -1,5 +1,5 @@
 
-from show import show_data
+from show   import show_data
 from find   import find_in
 from add    import add_new_worker, add_new_ward
 from delete import delete_worker,delete_ward

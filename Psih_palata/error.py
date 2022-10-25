@@ -12,7 +12,7 @@ def check_in(in_mode, upper:int):
        mode = 0
        return 0
     mode = int(in_mode)
-    if mode < 0 or mode not in range(1,upper+1):
+    if mode < 0 or mode not in range(0,upper+1):
        error_enter()
        mode = 0
        return 0
