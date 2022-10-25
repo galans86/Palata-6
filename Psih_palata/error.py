@@ -8,12 +8,12 @@ def get_mode():
 def check_in(in_mode, upper:int):
     global mode
     if not in_mode.isdigit():
-       log_error()
+       log_error('null input')
        mode = 0
        return 0
     mode = int(in_mode)
-    if mode < 0 or mode not in range(0,upper+1):
-       log_error()
+    if mode < 0 or mode not in range(0, upper+1):
+       log_error('incorrect input')
        mode = 0
        return 0
     else:

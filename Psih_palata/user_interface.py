@@ -61,30 +61,30 @@ def personal_menu():
                           '0. Предыдущее меню\n'),5):
         match get_mode():
             case 1:
-                log_next()
+                log_next('1')
                 show_data(file_personal)
                 log_show()
             case 2:
-                log_next()
+                log_next('2')
                 while menu_find_personal():
                     match get_mode():
                         case 1:
-                            log_next()
+                            log_next('1')
                             find_in(file_personal, 2, surname_in())
                         case 2:
-                            log_next()
+                            log_next('2')
                             find_in(file_personal, 3, special_in())
                         case 3:
-                            log_next()
+                            log_next('3')
                             find_in(file_personal, 5, parking_in())
             case 3:
-                log_next()
+                log_next('3')
                 menu_change_info_s(file_personal)
             case 4:
-                log_next()
+                log_next('4')
                 add_new_worker()
             case 5:
-                log_next()
+                log_next('5')
                 delete_worker()
 
 
@@ -98,30 +98,30 @@ def patient_menu():
                           '0. Предыдущее меню\n'),5):
         match get_mode():
             case 1:
-                log_next()
+                log_next('1')
                 show_data(file_patients)
                 log_show()
             case 2:
-                log_next()
+                log_next('2')
                 while menu_find_patient():
                     match get_mode():
                         case 1:
-                            log_next()
+                            log_next('1')
                             find_in(file_patients, 2, surname_in())
                         case 2:
-                            log_next()
+                            log_next('2')
                             find_in(file_patients, 6, diag_in())
                         case 3:
-                            log_next()
+                            log_next('3')
                             find_in(file_patients, 4, room_in())
             case 3:
-                log_next()
+                log_next('3')
                 menu_change_info_p(file_patients)
             case 4:
-                log_next()
+                log_next('4')
                 add_new_ward()
             case 5:
-                log_next()
+                log_next('5')
                 delete_ward()
 
 
@@ -130,9 +130,9 @@ def welcome():
     while comm_menu():
         match get_mode():
             case 1:
-                log_next()
+                log_next('1')
                 personal_menu()
             case 2:
-                log_next()
+                log_next('2')
                 patient_menu()
     log_quit()
