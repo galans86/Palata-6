@@ -41,6 +41,13 @@ def exception_id(value):
     else:
         return False
 
+def exception_number(value):
+    if value.isdigit():
+        return True
+    else:
+        return False
+
+
 
 def make_choise(min: int, max: int):
     try:

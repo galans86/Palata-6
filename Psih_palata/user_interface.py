@@ -79,7 +79,7 @@ def personal_menu():
                             find_in(file_personal, 5, parking_in())
             case 3:
                 log_next()
-                menu_change_info_s()
+                menu_change_info_s(file_personal)
             case 4:
                 log_next()
                 add_new_worker()
@@ -116,7 +116,7 @@ def patient_menu():
                             find_in(file_patients, 4, room_in())
             case 3:
                 log_next()
-                menu_change_info_p()
+                menu_change_info_p(file_patients)
             case 4:
                 log_next()
                 add_new_ward()
