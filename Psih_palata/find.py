@@ -51,6 +51,7 @@ def find_last_id(file: str) -> int:
                 data.append(int(res[0]))
             else:
                 continue
+        log_find()
     return max(data)
 
 

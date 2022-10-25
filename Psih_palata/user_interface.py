@@ -110,7 +110,7 @@ def patient_menu():
                             find_in(file_patients, 2, surname_in())
                         case 2:
                             log_next()
-                            find_in(file_patients, 3, diag_in())
+                            find_in(file_patients, 6, diag_in())
                         case 3:
                             log_next()
                             find_in(file_patients, 4, room_in())
