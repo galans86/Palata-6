@@ -1,4 +1,4 @@
-from logg import error_enter
+from logg import log_error
 
 mode = 0
 
@@ -8,12 +8,12 @@ def get_mode():
 def check_in(in_mode, upper:int):
     global mode
     if not in_mode.isdigit():
-       error_enter()
+       log_error()
        mode = 0
        return 0
     mode = int(in_mode)
     if mode < 0 or mode not in range(0,upper+1):
-       error_enter()
+       log_error()
        mode = 0
        return 0
     else:
@@ -47,13 +47,13 @@ def make_choise(min: int, max: int):
         token = (int(input('Выберете операцию: ')))
     except ValueError:
         print('Это не число. Попробуйте снова')
-        error_enter()
+        log_error()
         return make_choise(min, max)
     if token >= min and token <= max:
         return token
     else:
         print('Попробуйте снова')
-        error_enter()
+        log_error()
         return make_choise(min, max)
 
 
@@ -62,13 +62,13 @@ def error_name(what: str):
         name = (input('Введите {}: '.format(what)))
     except ValueError:
         print('Это не текст. Попробуйте снова')
-        error_enter()
+        log_error()
         return error_name(what)
     if not name.isdigit():
         return name
     else:
         print('Вы ввели число. Попробуйте снова')
-        error_enter()
+        log_error()
         return error_name(what)
 
 
@@ -77,13 +77,13 @@ def error_phone(what: str):
         phone = (input(f'Введите {what}, состоящий из 11 цифр, вместе с 8-кой: '))
     except ValueError:
         print('Попробуйте снова')
-        error_enter()
+        log_error()
         return error_phone(what)
     if phone.isdigit() and len(phone)== 11 and phone[0] == '8':
         return phone
     else:
         print('Попробуйте снова')
-        error_enter()
+        log_error()
         return error_phone(what)
 
 
@@ -92,13 +92,13 @@ def file_name():
         token = (input('Введите название файла '))
     except ValueError:
         print('Это не текст. Попробуйте снова')
-        error_enter()
+        log_error()
         return file_name()
     if '.txt' in token:
         return token
     else:
         print('Попробуйте снова')
-        error_enter()
+        log_error()
         return file_name()
 
 

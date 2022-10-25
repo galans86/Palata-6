@@ -1,3 +1,4 @@
+from logg import log_find
 def find_in(file: str, r: int, value: str) -> list:
     """
     Поиск по файлу данных
@@ -28,6 +29,7 @@ def find_in(file: str, r: int, value: str) -> list:
                 continue
         if not count:       # Если счетчик == 0 
             print('По запросу ничего не найдено!')
+        log_find()
         # res = [x for x in data if value in ''.split(data)]
     return data
 
