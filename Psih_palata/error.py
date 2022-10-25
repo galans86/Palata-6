@@ -1,9 +1,5 @@
 
-
-file_personal = 'Palata-6/Psih_palata/Personal.csv'
-file_patients = 'Palata-6/Psih_palata/Patients.csv'
 mode = 0
-
 
 def get_mode():
     return mode

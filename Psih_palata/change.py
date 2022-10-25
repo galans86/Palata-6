@@ -1,7 +1,7 @@
 
-from refresh import read_data, change_info_file
-from error   import exception_menu_item, exception_name, exception_id
-from error   import file_personal, file_patients
+from refresh   import read_data, change_info_file
+from error     import exception_menu_item, exception_name, exception_id
+from global_v  import file_personal, file_patients
 
 def get_value(message):
     while True:
