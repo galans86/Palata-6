@@ -1,4 +1,4 @@
 
-file_personal = 'Palata-6/Psih_palata/Personal.csv'
-file_patients = 'Palata-6/Psih_palata/Patients.csv'
-file_logs = 'Palata-6/Psih_palata/log.csv'
+file_personal = 'Psih_palata/Personal.csv'
+file_patients = 'Psih_palata/Patients.csv'
+file_logs = 'Psih_palata/log.csv'
