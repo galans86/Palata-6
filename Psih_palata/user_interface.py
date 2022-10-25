@@ -5,7 +5,7 @@ from add    import add_new_worker, add_new_ward
 from delete import delete_worker,delete_ward
 from error  import check_in, get_mode
 from change import menu_change_info_s, menu_change_info_p
-from logg   import start_app, quit_app, next_step, show_data as log_show_data
+from logg   import log_start, log_quit, log_next, log_show
 
 from global_v  import file_personal, file_patients
 
@@ -61,30 +61,30 @@ def personal_menu():
                           '0. Предыдущее меню\n'),5):
         match get_mode():
             case 1:
-                next_step()
+                log_next()
                 show_data(file_personal)
-                log_show_data()
+                log_show()
             case 2:
-                next_step()
+                log_next()
                 while menu_find_personal():
                     match get_mode():
                         case 1:
-                            next_step()
+                            log_next()
                             find_in(file_personal, 2, surname_in())
                         case 2:
-                            next_step()
+                            log_next()
                             find_in(file_personal, 3, special_in())
                         case 3:
-                            next_step()
+                            log_next()
                             find_in(file_personal, 5, parking_in())
             case 3:
-                next_step()
+                log_next()
                 menu_change_info_s()
             case 4:
-                next_step()
+                log_next()
                 add_new_worker()
             case 5:
-                next_step()
+                log_next()
                 delete_worker()
 
 
@@ -98,41 +98,41 @@ def patient_menu():
                           '0. Предыдущее меню\n'),5):
         match get_mode():
             case 1:
-                next_step()
+                log_next()
                 show_data(file_patients)
-                log_show_data()
+                log_show()
             case 2:
-                next_step()
+                log_next()
                 while menu_find_patient():
                     match get_mode():
                         case 1:
-                            next_step()
+                            log_next()
                             find_in(file_patients, 2, surname_in())
                         case 2:
-                            next_step()
+                            log_next()
                             find_in(file_patients, 3, diag_in())
                         case 3:
-                            next_step()
+                            log_next()
                             find_in(file_patients, 4, room_in())
             case 3:
-                next_step()
+                log_next()
                 menu_change_info_p()
             case 4:
-                next_step()
+                log_next()
                 add_new_ward()
             case 5:
-                next_step()
+                log_next()
                 delete_ward()
 
 
 def welcome():
-    start_app() 
+    log_start() 
     while comm_menu():
         match get_mode():
             case 1:
-                next_step()
+                log_next()
                 personal_menu()
             case 2:
-                next_step()
+                log_next()
                 patient_menu()
-    quit_app()
+    log_quit()
