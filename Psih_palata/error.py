@@ -10,14 +10,10 @@ def check_in(in_mode, upper:int):
     if not in_mode.isdigit():
        log_error('incorrect input')
        return check_in(input(f'Некорректный ввод\nВыберите пункт меню от 0 до {upper}: '), upper)
-    #    mode = 0
-    #    return 0
     mode = int(in_mode)
     if mode < 0 or mode not in range(0, upper+1):
        log_error('incorrect input')
        return check_in(input(f'Некорректный ввод\nВыберите пункт меню от 0 до {upper}: '), upper)
-    #    mode = 0
-    #    return 0
     else:
        return mode     
 
