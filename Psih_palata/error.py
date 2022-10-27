@@ -8,14 +8,12 @@ def get_mode():
 def check_in(in_mode, upper:int):
     global mode
     if not in_mode.isdigit():
-       log_error('null input')
-       mode = 0
-       return 0
+       log_error('incorrect input')
+       return check_in(input(f'Некорректный ввод\nВыберите пункт меню от 0 до {upper}: '), upper)
     mode = int(in_mode)
     if mode < 0 or mode not in range(0, upper+1):
        log_error('incorrect input')
-       mode = 0
-       return 0
+       return check_in(input(f'Некорректный ввод\nВыберите пункт меню от 0 до {upper}: '), upper)
     else:
        return mode     
 
